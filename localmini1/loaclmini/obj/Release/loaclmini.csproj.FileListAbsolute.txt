@@ -1,0 +1,13 @@
+C:\Documents and Settings\Administrator\Desktop\loaclmini\loaclmini\bin\Release\loaclmini.exe
+C:\Documents and Settings\Administrator\Desktop\loaclmini\loaclmini\bin\Release\loaclmini.pdb
+C:\Documents and Settings\Administrator\Desktop\loaclmini\loaclmini\bin\Release\Interop.SHDocVw.dll
+C:\Documents and Settings\Administrator\Desktop\loaclmini\loaclmini\obj\Release\ResolveAssemblyReference.cache
+C:\Documents and Settings\Administrator\Desktop\loaclmini\loaclmini\obj\Release\Interop.SHDocVw.dll
+C:\Documents and Settings\Administrator\Desktop\loaclmini\loaclmini\obj\Release\loaclmini.csproj.ResolveComReference.cache
+C:\Documents and Settings\Administrator\Desktop\loaclmini\loaclmini\obj\Release\WindowsFormsApplication1.Form1.resources
+C:\Documents and Settings\Administrator\Desktop\loaclmini\loaclmini\obj\Release\WindowsFormsApplication1.Form2.resources
+C:\Documents and Settings\Administrator\Desktop\loaclmini\loaclmini\obj\Release\WindowsFormsApplication1.Form3.resources
+C:\Documents and Settings\Administrator\Desktop\loaclmini\loaclmini\obj\Release\WindowsFormsApplication1.Properties.Resources.resources
+C:\Documents and Settings\Administrator\Desktop\loaclmini\loaclmini\obj\Release\loaclmini.csproj.GenerateResource.Cache
+C:\Documents and Settings\Administrator\Desktop\loaclmini\loaclmini\obj\Release\loaclmini.exe
+C:\Documents and Settings\Administrator\Desktop\loaclmini\loaclmini\obj\Release\loaclmini.pdb
