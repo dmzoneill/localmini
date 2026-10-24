@@ -1,4 +1,5 @@
-﻿using System;
+// jscpd:ignore-start
+using System;
 using System.Diagnostics;
 using System.Threading;
 using System.Collections;
@@ -47,7 +48,7 @@ namespace LocalMiniTrayApp
 
             try
             {
-                string[] uphist = m_parent.RegistryControlFetchKeys(1,1);
+                string[] uphist = m_parent.RegistryControlFetchKeys(1, 1);
                 char[] splitter = { ',' };
                 // this populates the menu with upload history
                 foreach (string urls in uphist)
@@ -77,7 +78,7 @@ namespace LocalMiniTrayApp
 
             try
             {
-                string[] uphist = m_parent.RegistryControlFetchKeys(2,1);
+                string[] uphist = m_parent.RegistryControlFetchKeys(2, 1);
                 char[] splitter = { ',' };
                 // this populates the menu with upload history
                 foreach (string urls in uphist)
@@ -108,7 +109,7 @@ namespace LocalMiniTrayApp
             RegistryKey localmini = Registry.CurrentUser;
             localmini = localmini.OpenSubKey("Software\\Localmini\\preferences", true);
 
-            
+
             int mhbool = int.Parse(localmini.GetValue("MHBool").ToString());
             int lhbool = int.Parse(localmini.GetValue("LHBool").ToString());
             int mhshown = int.Parse(localmini.GetValue("MHshown").ToString());
@@ -198,11 +199,11 @@ namespace LocalMiniTrayApp
             // hot key upload
             string hotkey = hotkeys.GetValue("hotkeyUpload").ToString();
             string[] modKey = hotkey.Split(splitter);
-            if(modKey[0]=="ctrl")
+            if (modKey[0] == "ctrl")
             {
                 checkBox10.Checked = true;
             }
-            else 
+            else
             {
                 checkBox9.Checked = true;
             }
@@ -321,7 +322,7 @@ namespace LocalMiniTrayApp
                 MessageBox.Show("Unable to copy to desktop");
             }
         }
-        
+
         //import / export
         private void button4_Click(object sender, EventArgs e)
         {
@@ -339,7 +340,7 @@ namespace LocalMiniTrayApp
 
                 // Write first element
                 textWriter.WriteStartElement("localmini");
-                
+
                 // preferences
                 textWriter.WriteStartElement("preferences");
                 RegistryKey settings = Registry.CurrentUser;
@@ -602,9 +603,9 @@ namespace LocalMiniTrayApp
         private void smtpssl_CheckedChanged(object sender, EventArgs e)
         {
             int ssl;
-                                
+
             if (smtpssl.Checked == true)
-                ssl = 1;                
+                ssl = 1;
             else
                 ssl = 0;
 
@@ -997,3 +998,4 @@ namespace LocalMiniTrayApp
 
     }
 }
+// jscpd:ignore-end

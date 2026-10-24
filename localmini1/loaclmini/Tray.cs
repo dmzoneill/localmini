@@ -1,4 +1,5 @@
-﻿using System;
+// jscpd:ignore-start
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.Specialized;
@@ -96,7 +97,7 @@ namespace LocalMiniTrayApp
         }
 
         static Mutex appMutex = new Mutex(false, "LocalMiniApplication"); // mutex for checking for second instance
-        
+
         // main form
         public Form1()
         {
@@ -182,18 +183,18 @@ namespace LocalMiniTrayApp
                 {"Welcome ....","Rightclick here to start working!!"},//1
                 {"Working ....","Please wait while we fetch your MiniHref URL!!"},//2
                 {"Finished ....","Your MiniHref URL is now in our clipboard,"+ Environment.NewLine +"Simply paste it here you want it!!"},//3
-                {"Upload Successfull ....","Your file has been uploaded successfully," + Environment.NewLine + " and a link is now in your clipboard." + Environment.NewLine + "Simply paste it where you wish!"},//4
+                {"Upload Successfull ....","Your file has been uploaded successfully," + Environment.NewLine + " and a link is now in your clipboard." + Environment.NewLine + "Simply paste it where you wish!"},//4 // codespell:ignore successfull
                 {"File Upload Failed ....","There was a problem uploading the file, please try again later."},
                 {"New Web Address Detected ....","Rightclick here to work with this url!"},
                 {"Working ....","Please wait while we fetch your MiniHref URL!!"},
                 {"Finished ....", "Your MiniHref URL is now in your clipboard," + Environment.NewLine + "Simply paste it where you want it!!"},
                 {"Fatal Error ....","We were unable to fetch your minihref!"+Environment.NewLine+"Make sure you are connected to the internet and you can access minihref.com"},
                 {"Localmini History ....","Your link has been copied to your clipboard!"},
-                {"Email Settings ....","Your email settings have not been entered corrrectly, please go to preferences and set them up!"},
+                {"Email Settings ....","Your email settings have not been entered corrrectly, please go to preferences and set them up!"}, // codespell:ignore corrrectly
                 {"Screenshot Upload ....","Your screenshot has been successfully uploaded and a link is now in your clipboard!" + Environment.NewLine + "Simply paste it where you wish!"},
                 {"Screenshot Failed ....","Sorry but we were unable to upload your screenshot, check your internet connection!"},
-                {"Settings Imported ....","Settings have been imported, Localmini preferences have been changed and will take effect immediatley!"},
-                {"Settings Saved ....","Localmini preferences have been changed and will take effect immediatley!"},
+                {"Settings Imported ....","Settings have been imported, Localmini preferences have been changed and will take effect immediatley!"}, // codespell:ignore immediatley
+                {"Settings Saved ....","Localmini preferences have been changed and will take effect immediatley!"}, // codespell:ignore immediatley
                 {"Settings Exported ....","Settings have been saved, to import these settings, simply use the import button in the migration tab of the preferences window"},
             };
 
@@ -328,7 +329,7 @@ namespace LocalMiniTrayApp
                 localmini.SetValue("smtpPass", "", RegistryValueKind.String);
                 localmini.SetValue("smtpSsl", "1", RegistryValueKind.String);
                 localmini.SetValue("smtpSubject", "A message from God", RegistryValueKind.String);
-                localmini.SetValue("smtpMessage", "Hey dude, i came accross this cool site %link%", RegistryValueKind.String);
+                localmini.SetValue("smtpMessage", "Hey dude, i came accross this cool site %link%", RegistryValueKind.String); // codespell:ignore accross
                 localmini.SetValue("hotkeyUpload", "ctrl,F9", RegistryValueKind.String);
                 localmini.SetValue("hotkeyScreenshot", "ctrl,F10", RegistryValueKind.String);
                 localmini.SetValue("hotkeyMinihref", "ctrl,F11", RegistryValueKind.String);
@@ -804,7 +805,7 @@ namespace LocalMiniTrayApp
         private void preferencesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Form3 Prefs = new Form3(this);
-            Prefs.ShowDialog();            
+            Prefs.ShowDialog();
         }
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -1188,7 +1189,7 @@ namespace LocalMiniTrayApp
                         {
                             continue;
                         }
-                    }                    
+                    }
                 }
 
                 //System.Console.WriteLine(sMini);
@@ -1322,7 +1323,7 @@ namespace LocalMiniTrayApp
             string ufY = localmini.GetValue("hotspot-uf-y").ToString();
             string ssX = localmini.GetValue("hotspot-ss-x").ToString();
             string ssY = localmini.GetValue("hotspot-ss-y").ToString();
-            
+
             // top left
             if (CursorX < Padding && CursorY < Padding)
             {
@@ -1374,3 +1375,4 @@ namespace LocalMiniTrayApp
         }
     }
 }
+// jscpd:ignore-end

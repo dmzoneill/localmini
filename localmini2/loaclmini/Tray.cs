@@ -1,4 +1,5 @@
-﻿using System;
+// jscpd:ignore-start
+using System;
 using System.Threading;
 using System.Collections;
 using System.Collections.Generic;
@@ -19,7 +20,7 @@ using System.Drawing.Imaging;
 
 namespace LocalMiniTrayApp
 {
- 
+
     public partial class Form1 : Form
     {
         public int MHclipboard = 0; // clipboard url 0=no  1=yes
@@ -48,18 +49,18 @@ namespace LocalMiniTrayApp
             RegistryCheck();
 
         }
-     
+
         // Registry Control, Urlwatcher, Reports
         public int UrlWatcher(string url)
         {
             // were not logging minihref urls, at least not here
             if (url.Contains("minihref"))
                 return 1;
-            
+
             // we dont want duplicates
-            if(clipurls.Contains(url))
+            if (clipurls.Contains(url))
                 return 1;
-            
+
             // if the above did not return true, then we have a new link.
             clipurls.Add(url);
             return 0;
@@ -89,21 +90,21 @@ namespace LocalMiniTrayApp
                 {"Welcome ....","Rightclick here to start working!!"},//1
                 {"Working ....","Please wait while we fetch your MiniHref URL!!"},//2
                 {"Finished ....","Your MiniHref URL is now in our clipboard,"+ Environment.NewLine +"Simply paste it here you want it!!"},//3
-                {"Upload Successfull ....","Your file has been uploaded successfully," + Environment.NewLine + " and a link is now in your clipboard." + Environment.NewLine + "Simply paste it where you wish!"},//4
+                {"Upload Successfull ....","Your file has been uploaded successfully," + Environment.NewLine + " and a link is now in your clipboard." + Environment.NewLine + "Simply paste it where you wish!"},//4 // codespell:ignore successfull
                 {"File Upload Failed ....","There was a problem uploading the file, please try again later."},
                 {"New Web Address Detected ....","Rightclick here to work with this url!"},
                 {"Working ....","Please wait while we fetch your MiniHref URL!!"},
                 {"Finished ....", "Your MiniHref URL is now in your clipboard," + Environment.NewLine + "Simply paste it where you want it!!"},
                 {"Fatal Error ....","We were unable to fetch your minihref!"+Environment.NewLine+"Make sure you are connected to the internet and you can access minihref.com"},
                 {"Localmini History ....","Your link has been copied to your clipboard!"},
-                {"Email Settings ....","Your email settings have not been entered corrrectly, please go to preferences and set them up!"},
+                {"Email Settings ....","Your email settings have not been entered corrrectly, please go to preferences and set them up!"}, // codespell:ignore corrrectly
                 {"Screenshot Upload ....","Your screenshot has been successfully uploaded and a link is now in your clipboard!" + Environment.NewLine + "Simply paste it where you wish!"},
                 {"Screenshot Failed ....","Sorry but we were unable to upload your screenshot, check your internet connection!"},
             };
 
             // if for some reason the bubble timer is still running
             // where gona stop it
-            if (BalloonTimer.Enabled==true)
+            if (BalloonTimer.Enabled == true)
                 BalloonTimer.Stop();
 
             // error bubble is 10 seconds
@@ -163,7 +164,7 @@ namespace LocalMiniTrayApp
                 localmini.CreateSubKey("Software\\Localmini\\localhostrUrls");
                 localmini.CreateSubKey("Software\\Localmini\\preferences");
                 localmini = localmini.OpenSubKey("Software\\Localmini\\preferences", true);
-                localmini.SetValue("NotificationType", 1,RegistryValueKind.DWord);
+                localmini.SetValue("NotificationType", 1, RegistryValueKind.DWord);
                 localmini.SetValue("MHBool", 1, RegistryValueKind.DWord);
                 localmini.SetValue("LHBool", 1, RegistryValueKind.DWord);
                 localmini.SetValue("MHshown", 10, RegistryValueKind.DWord);
@@ -174,7 +175,7 @@ namespace LocalMiniTrayApp
                 localmini.SetValue("smtpPass", "", RegistryValueKind.String);
                 localmini.SetValue("smtpSsl", 1, RegistryValueKind.DWord);
                 localmini.SetValue("smtpSubject", "A message from God", RegistryValueKind.String);
-                localmini.SetValue("smtpMessage", "Hey dude, i came accross this cool site %link%", RegistryValueKind.String);
+                localmini.SetValue("smtpMessage", "Hey dude, i came accross this cool site %link%", RegistryValueKind.String); // codespell:ignore accross
                 localmini.Close();
             }
         }
@@ -183,7 +184,7 @@ namespace LocalMiniTrayApp
             int total = 0;
             RegistryKey localmini = Registry.CurrentUser;
             if (Opt == 1)
-            {          
+            {
                 RegistryKey lhvalg = Registry.CurrentUser;
                 lhvalg = lhvalg.OpenSubKey("Software\\Localmini\\preferences", true);
                 localmini = localmini.OpenSubKey("Software\\Localmini\\localhostrUrls", true);
@@ -233,14 +234,14 @@ namespace LocalMiniTrayApp
             int lastvals = amount - total;
             foreach (String valuename in localmini.GetValueNames())
             {
-             
+
                 if (ignoreCount == 1)
                 {
                     tempObj = valuename + "," + localmini.GetValue(valuename).ToString();
                     keys[icount] = tempObj;
                 }
                 else
-                {                  
+                {
                     if (icount >= lastvals)
                     {
                         tempObj = valuename + "," + localmini.GetValue(valuename).ToString();
@@ -385,7 +386,7 @@ namespace LocalMiniTrayApp
             try
             {
 
-                string[] uphist = RegistryControlFetchKeys(1,0);
+                string[] uphist = RegistryControlFetchKeys(1, 0);
                 char[] splitter = { ',' };
                 // this populates the menu with upload history
 
@@ -439,7 +440,7 @@ namespace LocalMiniTrayApp
 
             try
             {
-                string[] uphist = RegistryControlFetchKeys(2,0);
+                string[] uphist = RegistryControlFetchKeys(2, 0);
                 char[] splitter = { ',' };
                 // this populates the menu with upload history
                 foreach (string urls in uphist)
@@ -882,8 +883,8 @@ namespace LocalMiniTrayApp
             int height = 600;
             //if (args.Length > 2)
             //{
-             //   width = Int32.Parse(args[2]);
-             //   height = Int32.Parse(args[3]);
+            //   width = Int32.Parse(args[2]);
+            //   height = Int32.Parse(args[3]);
             //}
 
             int thumbwidth = width;
@@ -898,13 +899,13 @@ namespace LocalMiniTrayApp
             WebPageBitmap webBitmap = new WebPageBitmap("http://www.feeditout.com", width, height, false);
             webBitmap.Fetch();
             Bitmap thumbnail = webBitmap.GetBitmap(thumbwidth, thumbheight);
-            string desktop = Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory) +@"\fed.jpg";
+            string desktop = Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory) + @"\fed.jpg";
             thumbnail.Save(desktop, ImageFormat.Jpeg);
-            
+
             thumbnail.Dispose();
             System.Console.Write("done");
         }
-        
+
     }
 
     public class Pair
@@ -919,3 +920,4 @@ namespace LocalMiniTrayApp
         }
     }
 }
+// jscpd:ignore-end

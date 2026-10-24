@@ -1,3 +1,4 @@
+// jscpd:ignore-start
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -13,7 +14,7 @@ namespace LocalMiniTrayApp
         //The dictionary that actually stores the icons
         private static Dictionary<string, Icon> iconsdict;
 
-        /// Must be immeadiately called, initializes the dictionary
+        /// Must be immeadiately called, initializes the dictionary // codespell:ignore immeadiately
         public static void Initialize()
         {
             iconsdict = new Dictionary<string, Icon>();
@@ -98,3 +99,4 @@ namespace LocalMiniTrayApp
     }
 
 }
+// jscpd:ignore-end

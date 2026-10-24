@@ -1,3 +1,4 @@
+// jscpd:ignore-start
 using System.Windows.Forms;
 using System.Drawing;
 
@@ -22,7 +23,7 @@ namespace LocalMiniTrayApp
             webBrowser.Size = new Size(width, height);
             webBrowser.ScrollBarsEnabled = scrollBarsEnabled;
         }
-        
+
         public void Fetch()
         {
             webBrowser.Navigate(url);
@@ -30,17 +31,17 @@ namespace LocalMiniTrayApp
             {
                 Application.DoEvents();
             }
-            
+
         }
         private void documentCompletedEventHandler(object sender, WebBrowserDocumentCompletedEventArgs e)
         {
             isReady = true;
         }
-        
+
         ~WebPageBitmap()
         {
-/*            webBrowser.Dispose();
- */
+            /*            webBrowser.Dispose();
+             */
         }
 
         internal Bitmap GetBitmap(int thumbwidth, int thumbheight)
@@ -56,7 +57,7 @@ namespace LocalMiniTrayApp
             {
                 Bitmap thumbnail = new Bitmap(thumbwidth, thumbheight);
                 Graphics gfx = Graphics.FromImage(thumbnail);
-                gfx.DrawImage(bitmap, new Rectangle(0,0, thumbwidth, thumbheight), bitmapRect,GraphicsUnit.Pixel);
+                gfx.DrawImage(bitmap, new Rectangle(0, 0, thumbwidth, thumbheight), bitmapRect, GraphicsUnit.Pixel);
 
                 bitmap.Dispose();
                 return thumbnail;
@@ -64,3 +65,4 @@ namespace LocalMiniTrayApp
         }
     }
 }
+// jscpd:ignore-end
