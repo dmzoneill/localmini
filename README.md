@@ -1,5 +1,9 @@
 # Localmini
 
+<p align="center">
+  <img src=".github/logo.png" alt="localmini logo" width="128" />
+</p>
+
 A Windows system tray utility for quickly sharing files, screenshots and
 links.
 
